@@ -5,7 +5,7 @@
  */
 package rmiclient;
 
-import java.rmi.RMISecurityManager;
+//import java.rmi.RMISecurityManager;
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 
@@ -22,12 +22,12 @@ public class ClientSide {
         
     
         
-        //   HERE WHEN LEFT MoST RECENT. I THINK MAYBE CLIENT SHOULDNT EVEN USE INTERFACE? SO THE CAST BELOW IS WRONG?
+        //   HERE hreh here pasted : The problem was 'some other Java process' that was providing its own Registry, which didn't have access to your CLASSPATH. 
         
         try
         {
             Registry cRegistry = LocateRegistry.getRegistry("127.0.0.1", 1099);
-            ServerRemoteInterface stub1 = (ServerRemoteInterface)cRegistry.lookup("aCalculation");
+            ServerRemoteInterface stub1 = (ServerRemoteInterface) cRegistry.lookup("aCalculation");
             
             System.out.println("blh is: " + stub1.addUp(2, 5));
         }
